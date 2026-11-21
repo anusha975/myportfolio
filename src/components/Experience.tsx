@@ -16,15 +16,15 @@ export const Experience: React.FC = () => {
       gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
+          start: 'top 85%',
+          once: true,
         },
       })
-        .fromTo(titleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' })
+        .fromTo(titleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
         .fromTo(
           '.exp-card',
-          { y: 35, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: 'power3.out' },
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'power2.out' },
           '-=0.2'
         );
     }, sectionRef);

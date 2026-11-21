@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SITE } from '../data/portfolioData';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
@@ -49,7 +51,23 @@ export const Navbar: React.FC = () => {
     const targetId = href.substring(1);
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Instantly reveal all elements in target section so there is never a blank/black screen
+      gsap.to(element, { opacity: 1, duration: 0.1 });
+      const animatableChildren = element.querySelectorAll('[ref], .honor-card, .edu-card, .exp-card, .matrix-item, div, h2, h3, p');
+      gsap.to(animatableChildren, { opacity: 1, y: 0, duration: 0.15, overwrite: 'auto' });
+
+      // Smooth scroll with proper navbar offset so content is never hidden behind the navbar
+      const navOffset = 76;
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementTop - navOffset),
+        behavior: 'smooth',
+      });
+
+      // Recalculate ScrollTrigger
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 400);
     }
   };
 

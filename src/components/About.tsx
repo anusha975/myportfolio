@@ -178,17 +178,17 @@ export const About: React.FC = () => {
         .timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: 'top 85%',
+            once: true,
           },
         })
-        .fromTo(headRef.current, { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' })
-        .fromTo(bioRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.4')
+        .fromTo(headRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
+        .fromTo(bioRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3')
         .fromTo(
           photoCardRef.current,
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.2)' },
-          '-=0.5'
+          { scale: 0.95, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out' },
+          '-=0.3'
         );
     }, sectionRef);
 

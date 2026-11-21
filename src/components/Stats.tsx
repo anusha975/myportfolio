@@ -28,8 +28,8 @@ export const Stats: React.FC = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none reverse',
+          start: 'top 80%',
+          once: true,
         },
       });
 

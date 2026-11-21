@@ -15,15 +15,15 @@ export const Achievements: React.FC = () => {
       gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
+          start: 'top 85%',
+          once: true,
         },
       })
-        .fromTo(titleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' })
+        .fromTo(titleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' })
         .fromTo(
           '.honor-card',
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' },
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'power2.out' },
           '-=0.2'
         );
     }, sectionRef);

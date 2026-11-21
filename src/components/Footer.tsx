@@ -7,6 +7,20 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleFooterNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navOffset = 76;
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementTop - navOffset),
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <footer className="w-full text-white pt-16 pb-12 px-6 md:px-12 lg:px-20 border-t border-white/5 bg-[#060608] relative overflow-hidden">
       {/* Background glow */}
@@ -93,14 +107,14 @@ export const Footer: React.FC = () => {
         {/* Middle Row: Navigation Links & Professional Status */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-400">
           <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-6 font-semibold uppercase tracking-wider">
-            <a href="#hero" className="hover:text-red-400 transition-colors">Home</a>
-            <a href="#about" className="hover:text-red-400 transition-colors">About</a>
-            <a href="#experience" className="hover:text-red-400 transition-colors">Experience</a>
-            <a href="#skills" className="hover:text-red-400 transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-red-400 transition-colors">Projects</a>
-            <a href="#research" className="hover:text-red-400 transition-colors">Research</a>
-            <a href="#achievements" className="hover:text-red-400 transition-colors">Achievements</a>
-            <a href="#contact" className="hover:text-red-400 transition-colors">Contact</a>
+            <a href="#hero" onClick={(e) => handleFooterNav(e, '#hero')} className="hover:text-red-400 transition-colors">Home</a>
+            <a href="#about" onClick={(e) => handleFooterNav(e, '#about')} className="hover:text-red-400 transition-colors">About</a>
+            <a href="#experience" onClick={(e) => handleFooterNav(e, '#experience')} className="hover:text-red-400 transition-colors">Experience</a>
+            <a href="#skills" onClick={(e) => handleFooterNav(e, '#skills')} className="hover:text-red-400 transition-colors">Skills</a>
+            <a href="#projects" onClick={(e) => handleFooterNav(e, '#projects')} className="hover:text-red-400 transition-colors">Projects</a>
+            <a href="#research" onClick={(e) => handleFooterNav(e, '#research')} className="hover:text-red-400 transition-colors">Research</a>
+            <a href="#achievements" onClick={(e) => handleFooterNav(e, '#achievements')} className="hover:text-red-400 transition-colors">Achievements</a>
+            <a href="#contact" onClick={(e) => handleFooterNav(e, '#contact')} className="hover:text-red-400 transition-colors">Contact</a>
           </nav>
 
           <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-[11px]">
