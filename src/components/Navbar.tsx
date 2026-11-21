@@ -52,22 +52,21 @@ export const Navbar: React.FC = () => {
     const element = document.getElementById(targetId);
     if (element) {
       // Instantly reveal all elements in target section so there is never a blank/black screen
-      gsap.to(element, { opacity: 1, duration: 0.1 });
+      gsap.set(element, { opacity: 1 });
       const animatableChildren = element.querySelectorAll('[ref], .honor-card, .edu-card, .exp-card, .matrix-item, div, h2, h3, p');
-      gsap.to(animatableChildren, { opacity: 1, y: 0, duration: 0.15, overwrite: 'auto' });
+      gsap.set(animatableChildren, { opacity: 1, y: 0, clearProps: 'opacity' });
 
-      // Smooth scroll with proper navbar offset so content is never hidden behind the navbar
+      // Direct instant jump without scrolling through intermediate sections line by line
       const navOffset = 76;
       const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: Math.max(0, elementTop - navOffset),
-        behavior: 'smooth',
-      });
+      window.scrollTo(0, Math.max(0, elementTop - navOffset));
 
-      // Recalculate ScrollTrigger
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 400);
+      if (window.history.pushState) {
+        window.history.pushState(null, '', href);
+      }
+
+      // Recalculate ScrollTrigger immediately
+      ScrollTrigger.refresh();
     }
   };
 

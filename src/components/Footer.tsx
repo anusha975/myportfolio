@@ -14,10 +14,10 @@ export const Footer: React.FC = () => {
     if (element) {
       const navOffset = 76;
       const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: Math.max(0, elementTop - navOffset),
-        behavior: 'smooth',
-      });
+      window.scrollTo(0, Math.max(0, elementTop - navOffset));
+      if (window.history.pushState) {
+        window.history.pushState(null, '', href);
+      }
     }
   };
 

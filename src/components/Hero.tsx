@@ -669,6 +669,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
                 <a
                   href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById('contact');
+                    if (el) {
+                      const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+                      window.scrollTo(0, Math.max(0, elementTop - 76));
+                    }
+                  }}
                   className="glass glass-hover inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-200 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
                 >
                   <Mail className="w-4 h-4 text-[#e50924]" />
