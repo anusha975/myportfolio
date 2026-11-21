@@ -609,16 +609,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
               : { transformOrigin: '50% 50%' }
           }
         >
-          <div className="pl-[6%] pr-6 max-w-[min(48rem,94%)] max-md:max-w-full max-md:pl-3 max-md:pr-3 max-md:pb-1 max-md:w-full max-md:rounded-3xl max-md:bg-gradient-to-t max-md:from-[#080808]/95 max-md:via-[#080808]/65 max-md:to-transparent max-md:pt-4">
-            <div data-hero-copy className="flex flex-col gap-2.5 sm:gap-3.5">
+          <div className="pl-[6%] pr-6 max-w-[min(48rem,94%)] max-md:max-w-full max-md:pl-3 max-md:pr-3 max-md:pb-1 max-md:w-full max-md:rounded-3xl max-md:bg-gradient-to-t max-md:from-[#080808]/95 max-md:via-[#080808]/65 max-md:to-transparent max-md:pt-4 pt-3 sm:pt-6 md:pt-8">
+            <div data-hero-copy className="flex flex-col gap-2 sm:gap-3">
               <span className="text-[#e50924] font-bold uppercase text-[11px] sm:text-xs md:text-sm tracking-[0.28em] drop-shadow-[0_0_10px_rgba(229,9,36,0.6)] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#e50924] animate-pulse" />
                 {HERO.eyebrow}
               </span>
-              <h1 className="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-[0.88] uppercase drop-shadow-md">
-                <span>{HERO.headlineFirst}</span>
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-400">
+              <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.94] uppercase drop-shadow-lg my-1">
+                <span className="block">{HERO.headlineFirst}</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">
                   {HERO.headlineLast}
                 </span>
               </h1>

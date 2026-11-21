@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="text-white text-xl sm:text-2xl font-black tracking-tight uppercase group flex items-center shrink-0"
+          className="text-white text-base sm:text-xl font-black tracking-tight uppercase group flex items-center shrink-0"
         >
           <span className="text-[#e50924] drop-shadow-[0_0_12px_rgba(229,9,36,0.8)]">
             {SITE.firstName.charAt(0)}
@@ -72,10 +72,10 @@ export const Navbar: React.FC = () => {
           <span className="group-hover:text-red-400 transition-colors duration-300">
             {SITE.firstName.slice(1)}
           </span>
-          <span className="text-white ml-1.5 hidden sm:inline text-sm font-semibold tracking-widest text-gray-400">
+          <span className="text-gray-300 ml-1.5 font-bold tracking-tight">
             {SITE.lastName}
           </span>
-          <span className="text-[#e50924] font-black text-xl">.</span>
+          <span className="text-[#e50924] font-black text-xl ml-0.5">.</span>
         </a>
 
         {/* Desktop Navigation Links */}
